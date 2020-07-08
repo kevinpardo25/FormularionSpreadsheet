@@ -1,0 +1,55 @@
+Index.html
+======================================
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+ 
+<style>div {margin: 10px;}</style>
+ 
+  </head>
+  <body>
+ 
+<h2>Registro de candidatos</h2>
+ 
+<form id="genericForm">
+ 
+<div class="form-group">
+ 
+<div>
+    <label for="distinguishedName">Nombre (s)</label>
+    <input type="text" name="distinguishedName" class="form-control" id="distinguishedName" placeholder="Nombre">
+</div>
+ 
+ 
+<div>
+    <label for="moreDetails">Apellido (s)</label>    
+    <input type="text" name="moreDetails" id="moreDetails" placeholder="Apellido">
+</div>
+
+<div>
+    <label for="moreDetails">Cedula</label>    
+    <input type="text" name="cedula" id="cedula" placeholder="cedula">
+</div>
+ 
+</div>
+ 
+ <input type="submit" onclick="this.value='procesando'; google.script.run.withSuccessHandler(formSubmitted) .writeForm(this.parentNode); return false;">
+  
+</form>
+ 
+ 
+ 
+<div id="output"></div><!-- where the confirmation message goes -->
+ 
+<script>
+   function formSubmitted(status) {
+        document.getElementById('genericForm').style.display = 'none'; //matches your form name or whatever you want to disappear post-submission
+        document.getElementById('output').innerHTML = status; //displays in item with the 'output' id
+    }
+</script>    
+ 
+  </body>
+</html>
